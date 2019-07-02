@@ -2001,6 +2001,7 @@ func (f *Fpdf) SetFont(familyStr, styleStr string, size float64) {
 					f.AddFontFromReader(familyStr, styleStr, rdr)
 				}
 				if f.err != nil {
+					fmt.Println("error in fontfromreader")
 					return
 				}
 			}

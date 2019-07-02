@@ -19,6 +19,7 @@ package gofpdf
 // Embedded standard fonts
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -44,6 +45,7 @@ func (f *Fpdf) coreFontReader(familyStr, styleStr string) (r *strings.Reader) {
 	if ok {
 		r = strings.NewReader(str)
 	} else {
+		fmt.Println("error in coreFontReader")
 		f.SetErrorf("could not locate \"%s\" among embedded core font definition files", key)
 	}
 	return
