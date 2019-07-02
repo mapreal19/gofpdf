@@ -1954,8 +1954,10 @@ func (f *Fpdf) GetFontDesc(familyStr, styleStr string) FontDescType {
 // value taken is 12.
 func (f *Fpdf) SetFont(familyStr, styleStr string, size float64) {
 	// dbg("SetFont x %.2f, lMargin %.2f", f.x, f.lMargin)
+	fmt.Println("set font...")
 
 	if f.err != nil {
+		fmt.Println(f.err)
 		return
 	}
 	// dbg("SetFont")
