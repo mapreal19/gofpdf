@@ -57,6 +57,8 @@ func (b *fmtBuffer) printf(fmtStr string, args ...interface{}) {
 }
 
 func fpdfNew(orientationStr, unitStr, sizeStr, fontDirStr string, size SizeType) (f *Fpdf) {
+	fmt.Println("new in mario version...")
+
 	f = new(Fpdf)
 	if orientationStr == "" {
 		orientationStr = "p"
