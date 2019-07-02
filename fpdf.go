@@ -1606,6 +1606,7 @@ func (f *Fpdf) addFont(familyStr, styleStr, fileStr string, isUTF8 bool) {
 		var ttfStat os.FileInfo
 		var err error
 		fileStr = path.Join(f.fontpath, fileStr)
+		fmt.Println("filestr", fileStr)
 		ttfStat, err = os.Stat(fileStr)
 		if err != nil {
 			f.SetError(err)
@@ -1677,6 +1678,7 @@ func (f *Fpdf) addFont(familyStr, styleStr, fileStr string, isUTF8 bool) {
 		}
 
 		fileStr = path.Join(f.fontpath, fileStr)
+		fmt.Println("filestr", fileStr)
 		file, err := os.Open(fileStr)
 		if err != nil {
 			f.err = err
@@ -2575,7 +2577,8 @@ func (f *Fpdf) MultiCell(w, h float64, txtStr, borderStr, alignStr string, fill 
 			ls = l
 			ns++
 		}
-		if cw[int(c)] == 0 { //Marker width 0 used for missing symbols
+		fmt.Println(cw)
+		if cw[int(c)] == 0 { // Marker width 0 used for missing symbols
 			l += f.currentFont.Desc.MissingWidth
 		} else if cw[int(c)] != 65535 { //Marker width 65535 used for zero width symbols
 			l += cw[int(c)]
