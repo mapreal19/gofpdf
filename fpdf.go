@@ -2006,6 +2006,7 @@ func (f *Fpdf) SetFont(familyStr, styleStr string, size float64) {
 				}
 			}
 		} else {
+			fmt.Println("undefined font!!!")
 			f.err = fmt.Errorf("undefined font: %s %s", familyStr, styleStr)
 			return
 		}
@@ -2015,6 +2016,8 @@ func (f *Fpdf) SetFont(familyStr, styleStr string, size float64) {
 	f.fontStyle = styleStr
 	f.fontSizePt = size
 	f.fontSize = size / f.k
+	fmt.Println("selecting fontkey...")
+	fmt.Println(fontKey)
 	f.currentFont = f.fonts[fontKey]
 	if f.currentFont.Tp == "UTF8" {
 		f.isCurrentUTF8 = true
