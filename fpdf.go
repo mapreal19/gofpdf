@@ -2577,7 +2577,7 @@ func (f *Fpdf) MultiCell(w, h float64, txtStr, borderStr, alignStr string, fill 
 			ls = l
 			ns++
 		}
-		fmt.Println(cw)
+		fmt.Println(len(cw))
 		if cw[int(c)] == 0 { // Marker width 0 used for missing symbols
 			l += f.currentFont.Desc.MissingWidth
 		} else if cw[int(c)] != 65535 { //Marker width 65535 used for zero width symbols
