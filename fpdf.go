@@ -2482,7 +2482,8 @@ func (f *Fpdf) MultiCell(w, h float64, txtStr, borderStr, alignStr string, fill 
 	if alignStr == "" {
 		alignStr = "J"
 	}
-	cw := f.currentFont.Cw
+	cw := f.currentFont.Cw // TODO: error here
+	fmt.Println("font name", f.currentFont.Name)
 	if w == 0 {
 		w = f.w - f.rMargin - f.x
 	}
@@ -4162,6 +4163,7 @@ func (f *Fpdf) loadFontFile(name string) ([]byte, error) {
 			return data, err
 		}
 	}
+	fmt.Println("da path", path.Join(f.fontpath, name))
 	return ioutil.ReadFile(path.Join(f.fontpath, name))
 }
 
